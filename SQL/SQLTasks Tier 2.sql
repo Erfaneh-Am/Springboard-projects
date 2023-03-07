@@ -130,7 +130,7 @@ ORDER BY cost DESC;
 -------------------------------------------------------------------------------
 
 SELECT *
-FROM (SELECT Facilities.name AS facility_name, CONCAT(firstname,' ',surname) AS member_name, (CASE WHEN 			Bookings.memid=0 THEN guestcost*slots ELSE membercost*slots END) AS cost
+FROM (SELECT Facilities.name AS facility_name, CONCAT(firstname,' ',surname) AS member_name, (CASE WHEN Bookings.memid=0 THEN guestcost*slots ELSE membercost*slots END) AS cost
 	FROM Bookings
 	INNER JOIN Facilities 
 	ON Bookings.facid = Facilities.facid AND (starttime LIKE '2012-09-14%') 
