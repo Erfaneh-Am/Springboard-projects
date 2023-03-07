@@ -170,7 +170,7 @@ AND (sub1.slots_guest*Facilities.guestcost + sub2.slots_member*Facilities.member
 /* Q11: Produce a report of members and who recommended them in alphabetic surname,firstname order */
 -------------------------------------------------------------------------------
 
-SELECT CONCAT(A.surname,',',A.firstname) AS member_name, (CASE WHEN A.recommendedby<>0 THEN CONCAT(B.surname,',',B.firstname)ELSE 'NA' END) AS recommended_by
+SELECT A.surname||A.firstname AS member_name, (CASE WHEN A.recommendedby<>0 THEN B.surname||B.firstname ELSE 'NA' END) AS recommended_by
         FROM Members A
         JOIN Members B 
         ON A.recommendedby=B.memid 
@@ -195,7 +195,7 @@ SELECT Facilities.name AS facility, subquery.member_use
 -------------------------------------------------------------------------------
 SELECT Facilities.name AS facility, subquery.month, subquery.member_use
         FROM Facilities,
-        (SELECT facid, MONTH(Bookings.starttime) AS month, COUNT(Bookings.memid) AS member_use 
+        (SELECT facid, strftime('%m', Bookings.starttime) AS month, COUNT(Bookings.memid) AS member_use 
         FROM Bookings
         WHERE Bookings.memid<>0
         GROUP BY facid, month) AS subquery
