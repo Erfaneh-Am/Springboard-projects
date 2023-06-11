@@ -11,3 +11,5 @@ Next, a Random Forest Classifier model was trained on the data and tuned ('crite
 
 ## Best Random Forest Feature Importance
 ![0069B3D2-D266-47E7-AE64-BAEA4C01B1C5_1_201_a](https://github.com/Erfaneh-Am/Springboard-projects/assets/121911081/03e892b6-a253-4f82-9064-0df5a1fe8679)
+
+Link to the Jupyter Notebook: https://github.com/Erfaneh-Am/Springboard-projects/blob/ee38f2ba6a4a3785712641818258673c068d9cb4/Take-Home-Challenge-Relax%20Inc./Relax_Challenge.ipynb
